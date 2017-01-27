@@ -5,6 +5,7 @@ class Stack
 
   def add(el)
     @stack << el
+    el
   end
 
   def remove
@@ -12,7 +13,7 @@ class Stack
   end
 
   def show
-    @stack
+    @stack.dup
   end
 end
 
@@ -38,6 +39,7 @@ class Queue
 
   def enqueue(el)
     @queue << el
+    el
   end
 
   def dequeue
@@ -45,7 +47,7 @@ class Queue
   end
 
   def show
-    @queue
+    @queue.dup
   end
 end
 
@@ -70,18 +72,21 @@ class Map
 
   def assign(key, value)
     @map << [key, value]
+    [key, value]
   end
 
   def lookup(key)
     @map.each { |pair| return pair.last if pair.include?(key) }
+    nil
   end
 
   def remove(key)
     @map.reject! { |pair| pair.include?(key) }
+    nil
   end
 
   def show
-    @map
+    @map.dup
   end
 end
 
