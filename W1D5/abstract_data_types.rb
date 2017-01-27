@@ -73,15 +73,11 @@ class Map
   end
 
   def lookup(key)
-    @map.each do |pair|
-      return pair.last if pair.include?(key)
-    end
+    @map.each { |pair| return pair.last if pair.include?(key) }
   end
 
   def remove(key)
-    @map.each do |pair|
-      @map.delete(pair) if pair.include?(key)
-    end
+    @map.reject! { |pair| pair.include?(key) }
   end
 
   def show
@@ -89,10 +85,10 @@ class Map
   end
 end
 
-# new_map = Map.new
-# new_map.assign(1, 2)
-# new_map.assign(3, 4)
-# p new_map.show
-# new_map.remove(1)
-# p new_map.show
-# p new_map.lookup(3)
+new_map = Map.new
+new_map.assign(1, 2)
+new_map.assign(3, 4)
+p new_map.show
+new_map.remove(1)
+p new_map.show
+p new_map.lookup(3)
