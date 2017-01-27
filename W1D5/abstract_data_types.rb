@@ -14,7 +14,6 @@ class Stack
   def show
     @stack
   end
-
 end
 
 # new_stack = Stack.new
@@ -38,15 +37,28 @@ class Queue
   end
 
   def enqueue(el)
-    @queue
+    @queue << el
   end
 
   def dequeue
-
+    @queue.shift
   end
 
   def show
-
+    @queue
   end
-
 end
+
+# new_queue = Queue.new
+# new_queue.enqueue(1)
+# new_queue.enqueue(2)
+# new_queue.enqueue(3)
+# p new_queue.show
+# new_queue.dequeue
+# new_queue.dequeue
+# p new_queue.show
+# new_queue.enqueue(4)
+# new_queue.enqueue(5)
+# p new_queue.show
+# new_queue.dequeue
+# p new_queue.show
