@@ -62,3 +62,37 @@ end
 # p new_queue.show
 # new_queue.dequeue
 # p new_queue.show
+
+class Map
+  def initialize
+    @map = []
+  end
+
+  def assign(key, value)
+    @map << [key, value]
+  end
+
+  def lookup(key)
+    @map.each do |pair|
+      return pair.last if pair.include?(key)
+    end
+  end
+
+  def remove(key)
+    @map.each do |pair|
+      @map.delete(pair) if pair.include?(key)
+    end
+  end
+
+  def show
+    @map
+  end
+end
+
+# new_map = Map.new
+# new_map.assign(1, 2)
+# new_map.assign(3, 4)
+# p new_map.show
+# new_map.remove(1)
+# p new_map.show
+# p new_map.lookup(3)
