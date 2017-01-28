@@ -12,6 +12,10 @@ class Simon
 
   def play
     take_turn until @game_over
+    if @game_over
+      game_over_message
+      reset_game
+    end
   end
 
   def take_turn
@@ -19,14 +23,10 @@ class Simon
     require_sequence
     round_success_message
     @sequence_length += 1
-    if @game_over
-      game_over_message
-      reset_game
-    end
   end
 
   def show_sequence
-
+    add_random_color
   end
 
   def require_sequence
@@ -36,12 +36,11 @@ class Simon
   end
 
   def add_random_color
-    # @sequence_length += 1 unless @sequence_length == 1
     @seq << COLORS.shuffle[0]
   end
 
   def round_success_message
-
+    puts "Good job! You got them right this round!"
   end
 
   def game_over_message
