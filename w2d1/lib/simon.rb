@@ -11,18 +11,22 @@ class Simon
   end
 
   def play
-    take_turn until @game_over
-    if @game_over
-      game_over_message
-      reset_game
+    until @game_over
+      take_turn
+      system("clear")
     end
+
+    game_over_message
+    reset_game
   end
 
   def take_turn
     show_sequence
     require_sequence
-    round_success_message
-    @sequence_length += 1
+    unless @game_over
+      round_success_message
+      @sequence_length += 1
+    end
   end
 
   def show_sequence
