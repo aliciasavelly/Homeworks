@@ -31,12 +31,24 @@ class Simon
 
   def show_sequence
     add_random_color
+    @seq.each do |color|
+      puts color
+      sleep 0.75
+      system("clear")
+      sleep 0.25
+    end
   end
 
   def require_sequence
     puts "Enter in the sequence."
-    player_seq = gets.chomp
-    @game_over = true unless player_seq == @seq
+    @seq.each do |color|
+      player_color = gets.chomp
+      if color[0] != user_color
+        @game_over == true
+        break
+      end
+    end
+    sleep 0.25
   end
 
   def add_random_color
@@ -44,11 +56,11 @@ class Simon
   end
 
   def round_success_message
-    puts "Good job! You got them right this round!"
+    puts "You got them right this round! Here's the next sequence."
   end
 
   def game_over_message
-    puts "Game over!"
+    puts "Game over! You made it #{@sequence_length - 1} rounds."
   end
 
   def reset_game
