@@ -1,4 +1,3 @@
-require "byebug"
 class Simon
   COLORS = %w(red blue green yellow)
 
@@ -23,6 +22,7 @@ class Simon
   def take_turn
     show_sequence
     require_sequence
+
     unless @game_over
       round_success_message
       @sequence_length += 1
@@ -40,11 +40,11 @@ class Simon
   end
 
   def require_sequence
-    puts "Enter in the sequence."
+    puts "Enter in the sequence (type in the first letter of the color on a new line)."
     @seq.each do |color|
       player_color = gets.chomp
-      if color[0] != user_color
-        @game_over == true
+      unless color[0] == player_color
+        @game_over = true
         break
       end
     end
@@ -57,6 +57,7 @@ class Simon
 
   def round_success_message
     puts "You got them right this round! Here's the next sequence."
+    sleep 0.75
   end
 
   def game_over_message
@@ -69,3 +70,6 @@ class Simon
     @sequence_length = 1
   end
 end
+
+# simon = Simon.new
+# simon.play
