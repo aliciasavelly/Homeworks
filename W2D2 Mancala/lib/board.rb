@@ -21,7 +21,7 @@ class Board
   end
 
   def valid_move?(start_pos)
-    raise 'Invalid starting cup' unless start_pos.between?(1, 12)
+    raise 'Invalid starting cup' unless start_pos.between?(0, 12)
     raise 'Invalid starting cup' if @cups[start_pos].empty?
   end
 
