@@ -10,7 +10,6 @@ class Board
   end
 
   def place_stones
-    # helper method to #initialize every non-store cup with four stones each
     soon_cups = Array.new(14) { Array.new }
 
     soon_cups = soon_cups.each_with_index do |cup, idx|
@@ -27,19 +26,6 @@ class Board
   end
 
   def make_move(start_pos, current_player_name)
-    # start_size = cups[start_pos].length
-    # @cups[start_pos] = []
-    # count = 0
-    #
-    # end_pos = start_size + start_pos
-    # (start_pos + 1).upto(end_pos) do |i|
-    #   i = (i % 13 + 1) if i >= 13
-    #   if (i == 6 && current_player_name == @name2) || (i == 13 && current_player_name == @name1)
-    #     count += 1
-    #   end
-    #
-    #   @cups[i + count] << :stone
-    # end
     stones = @cups[start_pos]
     @cups[start_pos] = []
 
@@ -55,7 +41,6 @@ class Board
         @cups[cup_idx] << stones.pop
       end
     end
-
 
     render
     next_turn(cup_idx)
