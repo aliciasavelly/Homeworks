@@ -17,6 +17,7 @@ class Board
       next if idx == 6 || idx == 13
       4.times { |i| cup << :stone }
     end
+
     soon_cups
   end
 
@@ -26,19 +27,21 @@ class Board
   end
 
   def make_move(start_pos, current_player_name)
-    start_size = cups[start_pos].length
-    cups[start_pos] = []
-    count = 0
-    circled = false
-    end_pos = start_size + start_pos
-    (start_pos + 1).upto(end_pos) do |i|
-      i %= 13 if i >= 13
-      if (i == 6 && current_player_name == @player1) || (i == 13 && current_player_name == @player2)
-        count += 1
-      end
+    # start_size = cups[start_pos].length
+    # @cups[start_pos] = []
+    # count = 0
+    #
+    # end_pos = start_size + start_pos
+    # (start_pos + 1).upto(end_pos) do |i|
+    #   i = (i % 13 + 1) if i >= 13
+    #   if (i == 6 && current_player_name == @name2) || (i == 13 && current_player_name == @name1)
+    #     count += 1
+    #   end
+    #
+    #   @cups[i + count] << :stone
+    # end
 
-      cups[i + count] << :stone
-    end
+    
 
     render
     next_turn(end_pos)
@@ -69,9 +72,6 @@ class Board
   end
 
   def winner
-    # if @cups[6].count == @cups[13].count
-    #   return :draw
-    # end
 
     case @cups[6].count <=> @cups[13].count
     when -1
@@ -83,4 +83,5 @@ class Board
     end
 
   end
+
 end
