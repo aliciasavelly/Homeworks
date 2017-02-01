@@ -9,7 +9,7 @@ over the solutions when you're done.
 
 describe Dessert do
   let(:chef) { double("chef", name: "Luke") }
-  let(:brownie) { Dessert.new('brownie', 12, chef)}
+  subject(:brownie) { Dessert.new('brownie', 12, chef)}
 
   describe "#initialize" do
     it "sets a type" do
@@ -33,6 +33,8 @@ describe Dessert do
     it "adds an ingredient to the ingredients array" do
       brownie.add_ingredient('flour')
       expect(brownie.ingredients).to eq(['flour'])
+      brownie.add_ingredient('salt')
+      expect(brownie.ingredients).to include('salt')
     end
   end
 
@@ -44,7 +46,7 @@ describe Dessert do
       brownie.add_ingredient('sugar')
       brownie.mix!
 
-      expect(brownie.ingredients).not_to eq(['flour', 'cocoa', 'eggs', 'water', 'sugar'])
+      expect(brownie.ingredients).not_to eq(['flour', 'salt', 'cocoa', 'eggs', 'water', 'sugar'])
     end
   end
 
