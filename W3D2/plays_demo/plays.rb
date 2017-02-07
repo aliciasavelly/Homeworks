@@ -65,7 +65,18 @@ class Play
   end
 
   def self.find_by_playwright(name)
+    play = PlayDBConnection.instance.execute(<<-SQL, name)
+      SELECT
+        *
+      FROM
+        plays
+      WHERE
+        name = ?
+    SQL
 
+    return nil unless play.length > 0
+
+    Play.new(play.first)
   end
 end
 
