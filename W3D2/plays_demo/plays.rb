@@ -93,12 +93,6 @@ class Playwright
     data.map { |datum| Playwright.new(datum) }
   end
 
-  def initialize(options)
-    @id = options['id']
-    @name = options['name']
-    @birth_year = options['birth_year']
-  end
-
   def self.find_by_name(name)
     playwright = PlayDBConnection.instance.execute(<<-SQL, name)
       SELECT
@@ -112,6 +106,12 @@ class Playwright
     return nil unless playwright.length > 0
 
     Playwright.new(playwright.first)
+  end
+
+  def initialize(options)
+    @id = options['id']
+    @name = options['name']
+    @birth_year = options['birth_year']
   end
 
   def create
@@ -140,6 +140,15 @@ class Playwright
 
   def get_plays
     raise "#{self} not in database" unless @id
-    Play.find_by_playwright(@name)
+    plays = PlayDBConnection.instance.execute(<<-SQL, @id)
+      SELECT
+        *
+      FROM
+        plays
+      WHERE
+        playwright_id = ?
+    SQL
+
+    plays.map { |play| Play.new(play) }
   end
 end
