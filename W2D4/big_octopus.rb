@@ -90,7 +90,7 @@ tiles_hash = {"up" => 0,
 
 def fast_dance(tile_direction, tiles_hash)
   tiles_hash[tile_direction]
-end
+end   
 
 p fast_dance("up", tiles_hash) == 0
 p fast_dance("right-down", tiles_hash) == 3
