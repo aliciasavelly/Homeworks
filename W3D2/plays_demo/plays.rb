@@ -85,6 +85,9 @@ end
 
 class Playwright
 
+  attr_accessor :name, :birth_year
+  attr_reader :id
+
   def self.all
     data = PlayDBConnection.instance.execute("SELECT * FROM playwrights")
     data.map { |datum| Playwright.new(datum) }
@@ -136,6 +139,7 @@ class Playwright
   end
 
   def get_plays
+    raise "#{self} not in database" unless @id
     Play.find_by_playwright(@name)
   end
 end
