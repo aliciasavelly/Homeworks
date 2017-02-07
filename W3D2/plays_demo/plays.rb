@@ -133,6 +133,6 @@ class Playwright
   end
 
   def get_plays
-
+    Play.find_by_playwright(@name)
   end
 end
