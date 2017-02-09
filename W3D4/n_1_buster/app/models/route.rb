@@ -22,6 +22,6 @@ class Route < ActiveRecord::Base
   end
 
   def better_drivers_query
-    # TODO: your code here
+    
   end
 end
