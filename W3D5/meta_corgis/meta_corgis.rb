@@ -118,7 +118,6 @@ class MetaCorgiSnacks
   #   tastiness > 30 ? "* #{result}" : result
   # end
 
-
   def self.define_snack(name)
     define_method(name) do
       info = @snack_box.send("get_#{name}_info", @box_id)
@@ -128,4 +127,5 @@ class MetaCorgiSnacks
       tastiness > 30 ? "* #{result}" : result
     end
   end
+  
 end
