@@ -6,7 +6,14 @@
   <body>
     <h1>Welcome to 99 Cats, <%= @user.name %>!</h1>
     <p>
-      This site will allow 
+      You have successfully signed up for 99cats.com, and your username is <%= @user.user_name %>. <br>
     </p>
+    <p>
+      This site will allow you to rent a cat whenever you want. Cats are great!
+    </p>
+    <p>
+      To login to the site, just follow this link: <%= @url %>.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
   </body>
 </html>
