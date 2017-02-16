@@ -1,9 +1,9 @@
 class UserMailer < ApplicationMailer
-  default from: 'welovecats@cats.com'
+  default from: 'everybody@appacademy.io'
 
   def welcome_email(user)
     @user = user
     @url = 'http://99cats.com/login'
-    mail(to: 'everybody@appacademy.io', subject: 'Welcome to 99 Cats!')
+    mail(to: user.username, subject: 'Welcome to 99 Cats!')
   end
 end
