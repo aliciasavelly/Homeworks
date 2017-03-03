@@ -1,0 +1,24 @@
+jblack [3:23 PM]
+order of operations on your existing repo:
+1) locally create a new gh_pages branch
+2) delete all files from it except for the index.html and an image file if you have one
+3) commit it and push it  with 'git push'
+4) github will now require you to set the remote link and create the remote gh-pages branch, do what it says
+5) once you do the above step try git push again, now it will work
+6) browse to: https://spacether.github.io/appacademy_hw/ replace my username with yours, my repo name with yours. Your index.html file will be live there.
+
+
+
+
+dallashall [6:23 PM] 
+@fafafariba
+Yes.
+I created a user repo: username.github.io, and I made a blank index.html for that repo.
+Then I created a gh-pages branch on my homeworks project on my computer `git checkout -b gh-pages`
+I deleted everything from the gh-pages branch, except the html file that I made for the last homework (which I renamed to index.html)
+Then I committed `git commit -m "gh-pages setup"` and pushed changes `git push origin gh-pages`
+Then, in Github, I made sure that my homeworks project (actually called 'aa-homeworks') was set to render the webpage from the gh-pages branch.
+Then I went to username.github.io/aa-homeworks
+
+[6:23]  
+https://dallashall.github.io/aa-homeworks/
