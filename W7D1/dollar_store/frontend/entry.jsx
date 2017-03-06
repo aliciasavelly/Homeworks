@@ -7,6 +7,7 @@ import { selectCurrency } from './actions';
 
 // window.selectCurrency = selectCurrency;
 // window.reducer = reducer;
+// window.store = store;
 
 document.addEventListener("DOMContentLoaded", function(){
   ReactDOM.render(<Widget store={store} />, document.getElementById('root'));
