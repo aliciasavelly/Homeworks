@@ -30,6 +30,7 @@ describe('BenchesReducer', () => {
 
   test('should initialize with an empty object as the default state', () => {
     /* your code here */
+    expect(BenchesReducer(undefined, {})).toEqual({});
   });
 
   describe('handling the RECEIVE_BENCHES action', () => {
@@ -38,14 +39,22 @@ describe('BenchesReducer', () => {
 
     beforeEach(() => {
       /* assign values to `testBenches` and `action` here */
+      testBenches = { 1: 'testBench1', 2: 'testBench2' };
+      action = { type: 'RECEIVE_BENCHES',
+                 benches: testBenches };
     });
 
     test('should replace the state with the action\'s benches', () => {
       /* your code here */
+      const state = BenchesReducer(undefined, action);
+      expect(state).toEqual(testBenches);
     });
 
     test('should not modify the old state', () => {
       /* your code here */
+      let oldState = { 1: 'oldState' };
+      BenchesReducer(oldState, action);
+      expect(oldState).toEqual({ 1: 'oldState' });
     });
   });
 });
