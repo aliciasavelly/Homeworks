@@ -1,0 +1,38 @@
+* {
+  font-family: gotham, helvetica, arial, sans-serif;
+  color: #606060;
+}
+
+img {
+  width: 30px;
+  height: 30px;
+}
+
+.nav-bar {
+  display: flex;
+  /*flex-wrap: wrap-reverse;*/
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.nav-bar a {
+  /*display: flex;*/
+  margin: 10px;
+  /*align-items: flex-end;*/
+  /*background: #b0e8df;*/
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 13px;
+  /*align-items: space-between;*/
+}
+
+.nav-bar img {
+  margin-right: auto;
+  /*display: flex;*/
+  /*justify-content: flex-start;*/
+}
+
+/*.nav-els {
+  display: flex;
+  justify-content: flex-end;
+}*/
