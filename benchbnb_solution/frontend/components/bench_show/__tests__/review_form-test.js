@@ -27,11 +27,16 @@ describe('review form container', () => {
     });
 
     test('pre-fills rating field to 5', () => {
-      expect(reviewRating.nodes[0].value).toEqual("5");
+      // let rating = reviewRating.nodes[0].value;
+      // expect(rating).toEqual("5");
+      let value = reviewRating.props().value;
+      expect(value).toEqual(5);
     });
 
     test('pre-fills comment field with empty string', () => {
       /* your code here */
+      let value = reviewBody.props().value;
+      expect(value).toEqual("");
     });
   });
 
