@@ -25,13 +25,14 @@ describe('review form container', () => {
       ));
       reviewBody = reviewFormWrapper.find('textarea');
     });
+
+    test('pre-fills rating field to 5', () => {
+      expect(reviewRating.nodes[0].value).toEqual("5");
+    });
+
+    test('pre-fills comment field with empty string', () => {
+      /* your code here */
+    });
   });
 
-  test('pre-fills rating field to 5', () => {
-    /* your code here */
-  });
-
-  test('pre-fills comment field with empty string', () => {
-    /* your code here */
-  });
 });
